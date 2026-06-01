@@ -1,0 +1,6 @@
+/* Custom layouts and app-level definitions */
+main {
+  display: block;
+  position: relative;
+  width: 100%;
+}
