@@ -15,7 +15,7 @@
   
   /* Fonts */
   --font-display: 'Syncopate', sans-serif;
-  --font-mono: 'Orbitron', monospace;
+  --font-mono: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   
   font-synthesis: none;
@@ -35,8 +35,101 @@ html, body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: var(--font-body);
+  line-height: 1.5;
   overflow-x: hidden;
   width: 100%;
+}
+
+img,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+.section-shell {
+  position: relative;
+  width: 100%;
+  padding: 5rem 1rem;
+}
+
+.section-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 920px;
+  margin: 0 auto 3.5rem;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--red-accent);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 8vw, 4rem);
+  font-weight: 300;
+  letter-spacing: 0;
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.premium-card {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    padding: 6rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .section-shell {
+    padding: 7rem 2rem;
+  }
+
+  .section-header {
+    margin-bottom: 4.5rem;
+  }
+
+  .section-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-shell {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+
+  .section-title {
+    font-size: clamp(3.8rem, 6vw, 5.25rem);
+  }
 }
 
 /* Lenis Custom Smooth Scroll Setup */
@@ -80,6 +173,7 @@ html.lenis, html.lenis body {
   font-family: var(--font-display);
   text-transform: uppercase;
   font-weight: 700;
+  letter-spacing: 0;
 }
 
 .font-mono {
@@ -105,33 +199,13 @@ html.lenis, html.lenis body {
   border: none;
   font-family: var(--font-display);
   font-size: 0.85rem;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
   padding: 1rem 2.5rem;
   font-weight: 700;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s ease;
   text-transform: uppercase;
-}
-
-.btn-red::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: all 0.5s ease;
-}
-
-.btn-red:hover::before {
-  left: 100%;
 }
 
 .btn-red:hover {
@@ -142,10 +216,207 @@ html.lenis, html.lenis body {
 .editorial-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  padding: 2.5rem;
+  padding: 2rem;
   transition: border-color 0.4s ease, transform 0.4s ease;
 }
 
 .editorial-card:hover {
   border-color: rgba(255, 255, 255, 0.25);
 }
+
+/* Motion Graphics - Speed Echo Silhouette */
+.speed-echo {
+  filter: sepia(1) saturate(7) hue-rotate(-50deg) brightness(0.65) contrast(1.1);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0px, 0px) scale(0.95);
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.group:hover .speed-echo {
+  opacity: 0.45;
+  transform: translate(18px, -10px) scale(1.03);
+}
+
+/* Tech Dots Matrix Background */
+.tech-grid-dots {
+  background-size: 18px 18px;
+  background-image: radial-gradient(circle, rgba(229, 0, 20, 0.08) 1.5px, transparent 1.5px);
+}
+
+/* Pulse Glow */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.15);
+  }
+}
+
+.pulse-glow-dot {
+  animation: pulse-glow 1.5s infinite ease-in-out;
+}
+
+/* Premium Carbon Fiber Texture */
+.carbon-bg {
+  background-color: #050505;
+  background-image: 
+    linear-gradient(45deg, rgba(16, 16, 16, 0.7) 25%, transparent 25%, transparent 75%, rgba(16, 16, 16, 0.7) 75%, rgba(16, 16, 16, 0.7)),
+    linear-gradient(45deg, rgba(16, 16, 16, 0.7) 25%, transparent 25%, transparent 75%, rgba(16, 16, 16, 0.7) 75%, rgba(16, 16, 16, 0.7));
+  background-size: 6px 6px;
+  background-position: 0 0, 3px 3px;
+  position: relative;
+}
+
+.carbon-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.8) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Cinematic Spotlight Overlay */
+.spotlight-halo {
+  background: radial-gradient(circle at center, rgba(229, 0, 20, 0.25) 0%, rgba(229, 0, 20, 0.08) 40%, transparent 70%);
+  filter: blur(40px);
+}
+
+/* Glassmorphism Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+}
+
+.glass-card:hover::before {
+  left: 150%;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(229, 0, 20, 0.5);
+  box-shadow: 0 12px 40px 0 rgba(229, 0, 20, 0.15);
+}
+
+/* Checkered Flag Waving Keyframes */
+@keyframes wave-row-0 {
+  0%, 100% { transform: translateY(0px) skewY(0deg); }
+  50% { transform: translateY(-3px) skewY(2deg); }
+}
+@keyframes wave-row-1 {
+  0%, 100% { transform: translateY(0px) skewY(0deg); }
+  50% { transform: translateY(3px) skewY(-2deg); }
+}
+
+.flag-wave-0 {
+  animation: wave-row-0 1.2s ease-in-out infinite;
+}
+.flag-wave-1 {
+  animation: wave-row-1 1.2s ease-in-out infinite;
+  animation-delay: 0.3s;
+}
+
+/* Technical drawing path dash animation */
+@keyframes svg-draw {
+  from {
+    stroke-dashoffset: 600;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.tech-draw-path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: svg-draw 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Live Telemetry Racing Dot along dynamic SVG track */
+@keyframes dash {
+  to {
+    stroke-dashoffset: -1000;
+  }
+}
+
+.racing-line-pulse {
+  stroke-dasharray: 40 180;
+  animation: dash 15s linear infinite;
+}
+
+/* Atmosphere Smoke Canvas Filter */
+.smoke-canvas {
+  mix-blend-mode: screen;
+  opacity: 0.35;
+}
+
+/* Blueprint slate tech grid */
+.blueprint-bg {
+  background-color: #040810;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.018) 1.2px, transparent 1.2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1.2px, transparent 1.2px);
+  background-size: 30px 30px;
+  position: relative;
+}
+
+.blueprint-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 35%, rgba(2, 4, 8, 0.92) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Tachometer circular gauge needle movement */
+@keyframes tach-wind {
+  0% { transform: rotate(-120deg); }
+  40% { transform: rotate(100deg); }
+  60% { transform: rotate(60deg); }
+  85% { transform: rotate(115deg); }
+  100% { transform: rotate(-120deg); }
+}
+
+.tach-needle {
+  transform-origin: 50% 50%;
+  animation: tach-wind 4s cubic-bezier(0.25, 0.8, 0.25, 1) infinite;
+}
+
+/* Speedometer split text blink */
+@keyframes timing-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.timing-flash {
+  animation: timing-blink 1s steps(2, start) infinite;
+}
+
+

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { RACE_FRAMES } from '@/lib/race-frames';
 import { ChevronDown } from 'lucide-react';
@@ -309,7 +309,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
         <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black via-transparent to-black pointer-events-none z-10 opacity-60" />
 
         {/* Clean Editorial Typography */}
-        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between p-8 md:p-16 pointer-events-none z-30">
+        <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between p-4 sm:p-6 md:p-12 lg:p-16 pointer-events-none z-30">
           
           <div />
 
@@ -327,7 +327,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
                   <span className="text-red-600 font-mono text-xs tracking-[0.2em] font-medium uppercase">
                     The Pinnacle of Racing
                   </span>
-                  <h1 className="text-4xl md:text-8xl font-display font-light tracking-tight leading-none text-white drop-shadow-xl">
+                  <h1 className="text-[clamp(1.8rem,7vw,3.2rem)] md:text-[clamp(3.5rem,8vw,6rem)] lg:text-8xl font-display font-light leading-[0.95] text-white drop-shadow-xl">
                     PURE<br />
                     <span className="font-bold text-white">ADRENALINE.</span>
                   </h1>
@@ -346,7 +346,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
                   <span className="text-white/50 font-mono text-xs tracking-[0.2em] font-medium uppercase">
                     Unmatched Velocity
                   </span>
-                  <h2 className="text-3xl md:text-7xl font-display font-light tracking-tight leading-none text-white drop-shadow-xl">
+                  <h2 className="text-[clamp(1.6rem,7vw,3rem)] md:text-[clamp(3rem,8vw,5rem)] lg:text-7xl font-display font-light leading-[0.95] text-white drop-shadow-xl">
                     BEYOND<br />
                     <span className="font-bold text-white">LIMITS.</span>
                   </h2>
@@ -365,7 +365,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
                    <span className="text-white/50 font-mono text-xs tracking-[0.2em] font-medium uppercase">
                     Precision Engineering
                   </span>
-                  <h2 className="text-3xl md:text-7xl font-display font-light tracking-tight leading-none text-white drop-shadow-xl">
+                  <h2 className="text-[clamp(1.6rem,7vw,3rem)] md:text-[clamp(3rem,8vw,5rem)] lg:text-7xl font-display font-light leading-[0.95] text-white drop-shadow-xl">
                     ABSOLUTE<br />
                     <span className="font-bold text-white">CONTROL.</span>
                   </h2>
@@ -381,7 +381,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
                   transition={{ duration: 0.8, ease: "easeOut" }}
                   className="flex flex-col items-center justify-center gap-4 w-full"
                 >
-                  <h2 className="text-4xl md:text-8xl font-display font-bold leading-none tracking-tight text-white drop-shadow-xl">
+                  <h2 className="text-[clamp(2rem,9vw,3.8rem)] md:text-[clamp(3.5rem,9vw,6rem)] lg:text-8xl font-display font-bold leading-[0.95] text-white drop-shadow-xl">
                     WELCOME.
                   </h2>
                 </motion.div>
@@ -397,7 +397,7 @@ export default function HeroSequence({ isSequenceFinished, onProgress, onComplet
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 z-40 pointer-events-none"
+              className="absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 z-40 pointer-events-none"
             >
               <span className="font-mono text-[10px] tracking-[0.2em] uppercase">Scroll</span>
               <ChevronDown size={16} className="text-white/50 animate-bounce" />
